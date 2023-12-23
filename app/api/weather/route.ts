@@ -5,7 +5,8 @@ import { getWeatherData } from "@/app/lib/utils";
 export const runtime = "edge";
 
 export async function GET(req: NextRequest) {
-  let location = req.nextUrl.searchParams.get("location");
+  // let location = req.nextUrl.searchParams.get("location");
+  let location = "tokyo";
   console.log(req);
   if (!location) {
     const { city } = geolocation(req);
@@ -17,6 +18,9 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({
     ...response
     ,infoLink: `https://weathergpt.vercel.app/${encodeURIComponent(location)}`
-    ,request: req
+    ,"req-nexturl": req.nextUrl
+    ,...req.geo
+    ,...req.nextUrl
+    ,...req.headers
   });
 }
