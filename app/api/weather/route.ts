@@ -15,7 +15,8 @@ export async function GET(req: NextRequest) {
   const response = await getWeatherData(location);
 
   return NextResponse.json({
-    ...response,
-    infoLink: `https://weathergpt.vercel.app/${encodeURIComponent(location)}`,
+    ...response
+    ,infoLink: `https://weathergpt.vercel.app/${encodeURIComponent(location)}`
+    ,request: req
   });
 }
