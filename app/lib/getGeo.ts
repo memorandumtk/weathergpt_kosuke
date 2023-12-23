@@ -17,7 +17,7 @@
 
 import React, { useState, useEffect } from "react";
 
-const getLocation = () => {
+const GetLocation = () => {
   // Initialize the state with a more specific type or null
   const [location, setLocation] = useState<GeolocationCoordinates | null>(null);
 
@@ -33,4 +33,4 @@ const getLocation = () => {
   return location;
 };
 
-export default getLocation;
+export default GetLocation;

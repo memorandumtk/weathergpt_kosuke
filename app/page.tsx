@@ -2,7 +2,7 @@ import { headers } from "next/headers";
 import { getWeatherData } from "./lib/utils";
 // import { PageData } from "./components/page-data";
 import PageData from "./components/page-data";
-import getLocation from "./lib/getGeo";
+// import getLocation from "./lib/getGeo";
 
 export const runtime = "edge";
 
