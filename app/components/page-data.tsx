@@ -2,6 +2,13 @@ import { Illustration } from "./illustration";
 import { Footer } from "./footer";
 
 export function PageData({ data }: { data: any }) {
+// type PageDataProps = {
+//   data: any; // Replace 'any' with a more specific type if possible
+//   location: GeolocationCoordinates | null;
+// };
+
+// // Apply the type to the PageData component
+// const PageData = ({ data, location }: PageDataProps) => {
   const date = new Date().toISOString();
   return (
     <>
@@ -49,4 +56,6 @@ export function PageData({ data }: { data: any }) {
       </Footer>
     </>
   );
-}
+};
+
+export default PageData;
