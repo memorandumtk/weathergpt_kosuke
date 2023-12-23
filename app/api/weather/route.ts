@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { geolocation } from "@vercel/edge";
 import { getWeatherData } from "@/app/lib/utils";
+import { headers } from "next/headers";
 
 export const runtime = "edge";
 
@@ -12,6 +13,7 @@ export async function GET(req: NextRequest) {
     const { city } = geolocation(req);
     location = city || "San Francisco";
   }
+  const headersValue = headers();
 
   const response = await getWeatherData(location);
 
@@ -21,6 +23,6 @@ export async function GET(req: NextRequest) {
     ,"req-nexturl": req.nextUrl
     ,...req.geo
     ,...req.nextUrl
-    ,...req.headers
+    ,...headersValue
   });
 }
