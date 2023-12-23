@@ -10,8 +10,7 @@ export default async function Page() {
   const parsedCity = headers().get("x-vercel-ip-city");
   const parsedCityTest = headers().entries();
   const headersValue = headers();
-  const city =
-  !parsedCity || parsedCity === "null" ? "Tokyo" : parsedCity;
+  const city = !parsedCity || parsedCity === "null" ? "Tokyo" : parsedCity;
   const data = await getWeatherData(city);
   console.log("this is data from whather api: ");
   console.log(data);
@@ -21,9 +20,11 @@ export default async function Page() {
   // const location = getLocation();
   // console.log(location);
 
-  return(
+  return (
     <div>
-    <PageData data={data} />
+      <PageData data={data} />
+      <p>{parsedCity}</p>
+      <p>{headersValue}</p>
     </div>
   );
 }
